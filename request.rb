@@ -16,4 +16,3 @@ def request (url)
 
 end
 
-
