@@ -6,3 +6,5 @@ data = request('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?
 content = build_web_page(data)
 
 File.write('./index.html', content)
+
+photo_count(data)

@@ -13,7 +13,9 @@ def build_web_page(data)
                 <h1 class="text-center mt-5 mb-5" >Mars Rover Photos</h1>
     
                 <ul class="container text-center">
-                                '+extract_photos(data)+'
+                
+                    '+extract_photos(data)+'
+
                 </ul>
                 
                 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -36,3 +38,19 @@ def extract_photos(data_photos)
 
 end
 
+def photo_count(data)
+
+    camera_names = Array.new(0)
+
+    data.each do |element|
+        camera_names.push (element['camera']['name'])
+    end
+
+    count_photos = Hash.new(0)
+    
+    camera_names.each do |name|
+        count_photos[name] +=1
+    end
+    
+    return count_photos
+end
